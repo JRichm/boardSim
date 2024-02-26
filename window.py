@@ -19,17 +19,20 @@ class Window:
 
         self.game = Game(self)
 
-    def update(self):
+    def Update(self):
+        events = []
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
 
+            events.append(event)
+
         self.screen.fill("Black")
-        self.game.update()
+        self.game.Update(events)
 
         self.screen.blit(self.draw_surface, (0, 0))
 
         pygame.display.flip()
 
-    def quit(self):
+    def Quit(self):
         pygame.quit()
